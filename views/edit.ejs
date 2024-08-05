@@ -1,0 +1,77 @@
+<%- include('./partials/header.ejs') %>
+<body class="bg-white flex flex-col items-center">
+  <div class="max-w-lg w-full">
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h2 class="text-xl font-semibold mb-4">Create New Hisaab</h2>
+      <form action="/hisaab/edit/<%=hisaab._id%>" method="POST">
+        <div class="mb-4">
+          <input
+            type="text"
+            value="<%=hisaab.title%>"
+            name="title"
+            placeholder="Title of Your Hisaab"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-4">
+          <textarea
+            name="description"
+            placeholder="Description of Your Hisaab"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32"
+          ><%=hisaab.description%></textarea>
+        </div>
+        <div class="mb-4">
+          <label class="inline-flex items-center">
+            <input 
+              type="checkbox" 
+              name="encrypted"
+              class="form-checkbox" 
+              <% if(hisaab.encrypted){ %> checked <% } %>
+            />
+            <span class="ml-2">Encrypt this file</span>
+          </label>
+        </div>
+        <div class="mb-4">
+          <input
+            type="password"
+            value="<%= hisaab.passcode %>"
+            name="passcode"
+            placeholder="Passcode"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="inline-flex items-center">
+            <input 
+              type="checkbox" 
+              name="shareable"
+              class="form-checkbox" 
+              <% if(hisaab.shareable){ %> checked <% } %>
+            />
+            <span class="ml-2">Shareable file?</span>
+          </label>
+        </div>
+        <div class="mb-4">
+          <label class="inline-flex items-center">
+            <input 
+              type="checkbox" 
+              name="editpermissions"
+              class="form-checkbox" 
+              <% if(hisaab.editpermissions){ %> checked <% } %>
+            />
+            <span class="ml-2">Edit permissions</span>
+          </label>
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Edit This Hisaab
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<%- include('./partials/footer.ejs') %>

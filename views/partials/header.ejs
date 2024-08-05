@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khaatabook</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="shortcut icon"
+      href="/images/favicon.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="navbar flex justify-between w-full px-20 py-10">
+      <h3>Khaatabook</h3>
+      <% var loggedin = typeof loggedin != 'undefined' ? loggedin:false%> <%
+      if(loggedin){%>
+      <div class="links flex gap-4">
+        <a href="/profile">Home</a>
+        <% if (typeof showCreateLink == 'undefined' || showCreateLink) { %>
+        <a href="/hisaab/create">Create new hisaab</a>
+        <% } %>
+        <a class="text-red-500" href="/logout">Logout</a>
+      </div>
+      <%}%>
+    </div>
+  </body>
+</html>
